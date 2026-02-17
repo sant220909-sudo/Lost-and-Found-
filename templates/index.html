@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Lost & Found Platform</title>
+    <link rel="stylesheet" href="{{ static('css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-search-location"></i>
+                <span>FindIt</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="browse.html" class="nav-link">Browse Items</a></li>
+                <li><a href="report-lost.html" class="nav-link">Report Lost</a></li>
+                <li><a href="report-found.html" class="nav-link">Report Found</a></li>
+                <li><a href="login.html" class="nav-link login-btn">Login</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Lost Something? Found Something?<br><span class="highlight">Let's Reunite It.</span></h1>
+            <p class="hero-subtitle">Join our community-driven platform to help lost items find their way back home</p>
+            
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for lost or found items..." id="hero-search">
+                    <button class="search-btn">Search</button>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="report-lost.html" class="btn btn-primary">
+                    <i class="fas fa-exclamation-circle"></i>
+                    Report Lost Item
+                </a>
+                <a href="report-found.html" class="btn btn-secondary">
+                    <i class="fas fa-hand-holding"></i>
+                    Report Found Item
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Police Contact Section -->
+    <section class="police-contact-section">
+        <div class="container">
+            <div class="police-contact-card">
+                <div class="police-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="police-content">
+                    <h3>Suspect Theft?</h3>
+                    <p>If you cannot find your item here and suspect it has been stolen, please contact the Indian Police for assistance.</p>
+                </div>
+                <a href="tel:112" class="police-hotline">
+                    <i class="fas fa-phone-alt"></i> Dial 112
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Items Section -->
+    <section class="recent-items">
+        <div class="container">
+            <h2 class="section-title">Recent Lost & Found Items</h2>
+            <div class="items-grid" id="recent-items-grid">
+                <!-- Items will be populated by JavaScript -->
+            </div>
+            <div class="text-center">
+                <a href="browse.html" class="btn btn-outline">View All Items</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-search-location"></i>
+                        <span>FindIt</span>
+                    </div>
+                    <p>Helping communities reunite lost items with their owners through the power of connection.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="browse.html">Browse Items</a></li>
+                        <li><a href="report-lost.html">Report Lost</a></li>
+                        <li><a href="report-found.html">Report Found</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FindIt Community Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span class="toast-message"></span>
+        </div>
+        <button class="toast-close" onclick="closeToast()">&times;</button>
+    </div>
+
+    <script src="{{ static('js/main.js') }}"></script>
+    <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="ndY_9_g7Lxc8BCE_HdK1r";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+</body>
+</html>

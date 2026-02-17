@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Found Item - FindIt</title>
+    <link rel="stylesheet" href="{{ static('css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-search-location"></i>
+                <span>FindIt</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="browse.html" class="nav-link">Browse Items</a></li>
+                <li><a href="report-lost.html" class="nav-link">Report Lost</a></li>
+                <li><a href="report-found.html" class="nav-link active">Report Found</a></li>
+                <li><a href="login.html" class="nav-link login-btn">Login</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Report Found Item</h1>
+            <p class="page-subtitle">Help reunite someone with their lost item</p>
+        </div>
+    </section>
+
+    <!-- Report Form -->
+    <section class="report-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-card">
+                    <div class="form-header">
+                        <i class="fas fa-hand-holding"></i>
+                        <h2>Found Item Details</h2>
+                        <p>Please provide details about the item you found to help the owner identify it</p>
+                    </div>
+
+                    <form id="found-item-form" class="report-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="item-name">Item Name *</label>
+                                <input type="text" id="item-name" name="itemName" placeholder="e.g., iPhone 13 Pro, Brown Wallet" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="category">Category *</label>
+                                <select id="category" name="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="accessories">Accessories</option>
+                                    <option value="bags">Bags & Luggage</option>
+                                    <option value="documents">Documents</option>
+                                    <option value="jewelry">Jewelry</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">General Description *</label>
+                            <textarea id="description" name="description" placeholder="Describe the item without revealing specific details that only the owner would know..." rows="4" required></textarea>
+                            <small class="form-help">Keep some details private to verify ownership later</small>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="location">Found Location *</label>
+                                <input type="text" id="location" name="location" placeholder="e.g., Central Park bench, Coffee shop on 5th Ave" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="date-found">Date Found *</label>
+                                <input type="date" id="date-found" name="dateFound" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="time-found">Approximate Time</label>
+                                <input type="time" id="time-found" name="timeFound">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="current-location">Current Location</label>
+                                <select id="current-location" name="currentLocation">
+                                    <option value="">Where is the item now?</option>
+                                    <option value="with-me">I have it with me</option>
+                                    <option value="police-station">Turned in to police</option>
+                                    <option value="lost-and-found">Business lost & found</option>
+                                    <option value="other">Other location</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-info">Contact Information *</label>
+                            <input type="email" id="contact-info" name="contactInfo" placeholder="your.email@example.com" required>
+                            <small class="form-help">This will be shared with the potential owner</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="additional-info">Additional Information</label>
+                            <textarea id="additional-info" name="additionalInfo" placeholder="Any other details about where/how you found it..." rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="item-image">Upload Image (Optional)</label>
+                            <div class="file-upload">
+                                <input type="file" id="item-image" name="itemImage" accept="image/*">
+                                <div class="file-upload-area">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Click to upload or drag and drop</p>
+                                    <small>PNG, JPG up to 5MB</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="verification-note">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Verification Process</h4>
+                                <p>When someone claims this item, they'll need to provide specific details that only the owner would know. This helps ensure items are returned to their rightful owners.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Report Found Item
+                            </button>
+                            <button type="reset" class="btn btn-outline">
+                                <i class="fas fa-undo"></i>
+                                Clear Form
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-search-location"></i>
+                        <span>FindIt</span>
+                    </div>
+                    <p>Helping communities reunite lost items with their owners through the power of connection.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="browse.html">Browse Items</a></li>
+                        <li><a href="report-lost.html">Report Lost</a></li>
+                        <li><a href="report-found.html">Report Found</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FindIt Community Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-check-circle"></i>
+            <span class="toast-message"></span>
+        </div>
+        <button class="toast-close" onclick="closeToast()">&times;</button>
+    </div>
+
+    <script src="{{ static('js/main.js') }}"></script>
+    <script src="{{ static('js/report-found.js') }}"></script>
+    <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="ndY_9_g7Lxc8BCE_HdK1r";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+</body>
+</html>
